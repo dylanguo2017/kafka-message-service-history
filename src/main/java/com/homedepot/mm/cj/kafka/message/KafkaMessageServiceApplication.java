@@ -1,4 +1,4 @@
-package com.homedepot.mm;
+package com.homedepot.mm.cj.kafka.message;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
