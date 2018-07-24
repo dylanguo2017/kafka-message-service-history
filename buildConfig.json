@@ -1,0 +1,64 @@
+{
+"projectInfo": {
+	"name": "kafka-message-service",
+	"versionStrategy": "tracker",
+    "fmsNumber": "IT-08114",
+    "cdTemplate": "CD0001001",
+	"language": "java"
+},
+
+"artifact": {
+	"artifactoryDomain": "https://maven.artifactory.homedepot.com/artifactory",
+	"artifactoryRepoKey": "libs-release-local",
+	"artifactoryRepoKeySnapshot": "libs-snapshot-local",
+	"artifactoryGroup": "com/homedepot//mm/cj/kafka/message", 
+	"artifactType": "jar"
+},
+
+"fortify":{
+	"foldersToScan": "src",
+	"project-name": "EnterpriseCustomerCommunication_kafka-message-service",
+	"emailList": "Jesse_Thompson@homedepot.com,SUBHRANSU_MALLICK@homedepot.com,RAJASHUNMUGAM_MURUGESAN@homedepot.com"
+},
+
+"github": {
+	"org": "EnterpriseCustomerCommunication",
+	"repo": "kafka-message-service",
+	"URL": "https://github.homedepot.com/api/v3/repos"
+},
+ 
+"tracker": { 
+	"projectId": 1900393
+},
+
+"slack": {
+	"channel": "#ecc-dev",
+	"botName": "DeployBot",
+	"emoji": ":robot_face:"
+},
+
+
+"environments": {
+	"dev": {
+		"cf": {
+			"apiEndpoint": "api.run-np.homedepot.com",
+			"domain": "apps-np.homedepot.com",
+			"space": "development",
+			"org": "EnterpriseCustomerCommunication"
+		},
+		"artifactCategory": "snapshot",
+		"associatedBranchName": "master"
+	},
+	"qa": {
+		"cf": {
+			"apiEndpoint": "api.run-np.homedepot.com",
+			"domain": "apps-np.homedepot.com",
+			"space": "QA",
+			"org": "EnterpriseCustomerCommunication"
+		},
+		"artifactCategory": "snapshot",
+		"associatedBranchName": "master"
+	}
+
+}
+}
