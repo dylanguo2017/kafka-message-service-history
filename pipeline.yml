@@ -9,7 +9,7 @@ resources:
        disable_ci_skip: false
     branch: develop
     private_key: {{github-private-key}}
-  check_every: 24h
+  check_every: 5m
   webhook_token: custcommteam
 
 - name: git(deployments) #TODO: change to your deployments repo
@@ -18,7 +18,7 @@ resources:
     uri: git@github.homedepot.com:EnterpriseCustomerCommunication/ecc-deployments.git #TODO: link to your deployments repo
     branch: master
     private_key: {{github-private-key}}
-  check_every: 24h
+  check_every: 5m
 
 - name: ci
   type: git
@@ -27,7 +27,7 @@ resources:
     branch: master
     private_key: {{github-private-key}}
     #tag_filter: "1.*"
-  check_every: 24h
+  check_every: 5m
 
 - name: slack
   type: slack-notification

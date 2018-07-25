@@ -1,0 +1,12 @@
+---
+applications:
+- name: kafkamessageservice
+  memory: 1024M
+  host: kafkamessageservice_dev
+  path: target/kafka-message-service.war
+
+services:
+ - oracle-db-service-elcc
+env:
+
+ SPRING_PROFILES_ACTIVE: development
