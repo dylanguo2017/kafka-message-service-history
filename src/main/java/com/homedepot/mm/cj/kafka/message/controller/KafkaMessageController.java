@@ -7,7 +7,6 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +15,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWraper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Controller
 @RequestMapping("/kafkamessage")
 public class KafkaMessageController {
-	private static final Logger LOGGER = Logger.getLogger(KafkaMessageController.class);
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaMessageController.class);
 
 	@RequestMapping(value = "/kafkaQATest",method = RequestMethod.POST)
 	@ResponseBody
