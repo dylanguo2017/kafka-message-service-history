@@ -51,7 +51,7 @@ public class KafkaMessageController {
 			System.out.println(recdMetaData.topic());
 			System.out.println(recdMetaData.offset());
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("Exception in Kafka MEssage process"+e.getMessage());
 		}
 		finally {
 			producer.close();
@@ -86,7 +86,7 @@ public class KafkaMessageController {
 			System.out.println(recdMetaData.topic());
 			System.out.println(recdMetaData.offset());
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("Exception in Kafka MEssage process"+e.getMessage());
 		}
 		finally {
 			producer.close();
@@ -121,7 +121,7 @@ public class KafkaMessageController {
 			System.out.println(recdMetaData.topic());
 			System.out.println(recdMetaData.offset());
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("Exception in Kafka MEssage process"+e.getMessage());
 		}
 		finally {
 			producer.close();
@@ -158,7 +158,7 @@ public class KafkaMessageController {
 			System.out.println(recdMetaData.topic());
 			System.out.println(recdMetaData.offset());
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("Exception in Kafka MEssage process"+e.getMessage());
 		}
 		finally {
 			producer.close();
