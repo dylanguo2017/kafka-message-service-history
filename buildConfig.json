@@ -47,7 +47,7 @@
 			"org": "EnterpriseCustomerCommunication"
 		},
 		"artifactCategory": "snapshot",
-		"associatedBranchName": "master"
+		"associatedBranchName": "develop"
 	},
 	"qa": {
 		"cf": {

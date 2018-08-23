@@ -2,7 +2,7 @@
 applications:
 - name: kafkamessageservice
   memory: 1024M
-  host: kafkamessageservice_dev
+  host: kafkamessageservice-dev
   path: target/kafka-message-service.war
 
 services:
