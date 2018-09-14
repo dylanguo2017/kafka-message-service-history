@@ -9,6 +9,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -22,19 +23,25 @@ public class KafkaMessageServiceImpl  implements KafkaMessageService {
 	static final String SERIALIZER_KEY = "org.apache.kafka.common.serialization.StringSerializer";
 	static final String SERIALIZER_VALUE = "org.apache.kafka.common.serialization.StringSerializer";
 	
-	@Value("${kafka.server.topic}")
-	private String kafkaTopicName="";
+	private String kafkaTopicName;
 	
-	@Value("${kafka.server.url}")
-	private String kafkaServerUrl="";
+	private String kafkaServerUrl;
+	
+	KafkaMessageWraper kafkaMessageWraper;
+	
+	@Autowired
+	public KafkaMessageServiceImpl(KafkaMessageWraper kafkaMessageWraper, @Value("${kafka.server.url}") String kafkaTopicName,  @Value("${kafka.server.topic}") String kafkaServerUrl) {
+		this.kafkaTopicName = kafkaTopicName;
+		this.kafkaServerUrl = kafkaServerUrl;
+		this.kafkaMessageWraper = kafkaMessageWraper;
+	}
 	 
-	
 	public KafkaMessageWraper sendKafkaMessage(String requestXML) {
 		
-		KafkaMessageWraper eccParamWraper = new KafkaMessageWraper();
+		kafkaMessageWraper = new KafkaMessageWraper();
 
-		eccParamWraper.setStatus(0);
-		eccParamWraper.setStatusDesc("success");
+		kafkaMessageWraper.setStatus(0);
+		kafkaMessageWraper.setStatusDesc("success");
 		Properties props = new Properties();
 		props.put("bootstrap.servers",kafkaServerUrl);
 		props.put("key.serializer",SERIALIZER_KEY);
@@ -52,14 +59,14 @@ public class KafkaMessageServiceImpl  implements KafkaMessageService {
 			LOGGER.debug("recdMetaData.topic() ==>"+recdMetaData.topic());
 			LOGGER.debug("recdMetaData.offset() ==>"+recdMetaData.offset());
 		} catch (Exception e) {
-			eccParamWraper.setStatus(1);
-			eccParamWraper.setStatusDesc("failure");
+			kafkaMessageWraper.setStatus(1);
+			kafkaMessageWraper.setStatusDesc("failure");
 			LOGGER.error("Exception in Kafka MEssage process"+e.getMessage());
 		}
 		finally {
 			producer.close();
 		}
-		return eccParamWraper;
+		return kafkaMessageWraper;
 	}
 
 	

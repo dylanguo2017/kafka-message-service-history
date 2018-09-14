@@ -16,36 +16,32 @@ import com.homedepot.mm.cj.kafka.message.service.KafkaMessageService;
 @Controller
 @RequestMapping("/kafka")
 public class KafkaMessageController {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaMessageController.class);
-	 
-	
+
 	@Autowired
 	KafkaMessageService kafkaMessageService;
-	
-	
-	@RequestMapping(value = "/sendMessage",method = RequestMethod.POST)
+
+	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
 	@ResponseBody
 	public KafkaMessageWraper kafkaSendMessage(@RequestBody() String xml) {
-				
+
 		LOGGER.debug("Start kafkaSendMessage()");
 		KafkaMessageWraper eccParamWraper = new KafkaMessageWraper();
-		if(!StringUtils.isEmpty(xml)) {
+		if (!StringUtils.isEmpty(xml)) {
 			eccParamWraper = kafkaMessageService.sendKafkaMessage(xml);
-		}else {
+		} else {
 			eccParamWraper = null;
 			LOGGER.debug("Request XML for Kafka Service is Empty.");
 		}
-		
+
 		LOGGER.debug("End kafkaSendMessage()");
 		return eccParamWraper;
 	}
 
 	@RequestMapping("/health")
-	public String health(){
-	    return "{\"response\" : 200}";
+	public String health() {
+		return "{\"response\" : 200}";
 	}
-	
-
 
 }
