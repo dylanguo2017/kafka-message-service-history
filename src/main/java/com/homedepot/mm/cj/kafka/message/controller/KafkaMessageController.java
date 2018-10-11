@@ -34,7 +34,7 @@ public class KafkaMessageController {
 
 		Producer<String, String> producer = null;
 
-		produceMessage(xml, props, producer);
+		produceMessage(xml, props, producer, "COM_ECC_XML_MESSAGE_TOPIC_AD");
 		return eccParamWraper;
 	}
 
@@ -48,7 +48,7 @@ public class KafkaMessageController {
 
 		Producer<String, String> producer = null;
 
-		produceMessage(xml, props, producer);
+		produceMessage(xml, props, producer, "COM_ECC_XML_MESSAGE_TOPIC");
 		return eccParamWraper;
 	}
 
@@ -64,7 +64,7 @@ public class KafkaMessageController {
 
 		Producer<String, String> producer = null;
 
-		produceMessage(xml, props, producer);
+		produceMessage(xml, props, producer, "COM_ECC_XML_MESSAGE_TOPIC");
 		return eccParamWraper;
 	}
 	// Keeping this here in case you want to uncomment and use this mapping to test locally :)
@@ -92,12 +92,11 @@ public class KafkaMessageController {
 		return props;
 	}
 
-	private void produceMessage(@RequestBody String xml, Properties props, Producer<String, String> producer) {
+	private void produceMessage(@RequestBody String xml, Properties props, Producer<String, String> producer, String topic) {
 		LOGGER.info("Incoming message : "+ xml);
 		try {
 			producer = new KafkaProducer<String, String>(props);
-			ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(
-					"COM_ECC_XML_MESSAGE_TOPIC", xml);
+			ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(topic, xml);
 
 			Future<RecordMetadata> recordMetaData = producer
 					.send(producerRecord);
