@@ -27,61 +27,61 @@ public class KafkaMessageController {
 	@RequestMapping(value = "/kafkaDevTest",method = RequestMethod.POST)
 	@ResponseBody
 	public KafkaMessageWraper kafkaDevTest(@RequestBody() String xml) {
-		KafkaMessageWraper eccParamWraper = new KafkaMessageWraper();
-		eccParamWraper.setStatus(0);
-		eccParamWraper.setStatusDesc("success");
+		KafkaMessageWraper eccParamWrapper = setupMessageWrapper();
 		Properties props = getProperties("url: com-kafka-qa.com.homedepot.com:9092");
 
 		Producer<String, String> producer = null;
 
 		produceMessage(xml, props, producer, "COM_ECC_XML_MESSAGE_TOPIC_AD");
-		return eccParamWraper;
+		return eccParamWrapper;
+	}
+
+	@RequestMapping(value = "/kafkaDevTest",method = RequestMethod.POST)
+	@ResponseBody
+	public KafkaMessageWraper kafkaQATest(@RequestBody() String xml) {
+		KafkaMessageWraper eccParamWrapper = setupMessageWrapper();
+		Properties props = getProperties("url: com-kafka-qa.com.homedepot.com:9092");
+
+		Producer<String, String> producer = null;
+
+		produceMessage(xml, props, producer, "COM_ECC_XML_MESSAGE_TOPIC");
+		return eccParamWrapper;
 	}
 
 	@RequestMapping(value = "/kafkaQPTest",method = RequestMethod.POST)
 	@ResponseBody
 	public KafkaMessageWraper kafkaQPTest(@RequestBody() String xml) {
-		KafkaMessageWraper eccParamWraper = new KafkaMessageWraper();
-		eccParamWraper.setStatus(0);
-		eccParamWraper.setStatusDesc("success");
+		KafkaMessageWraper eccParamWrapper = setupMessageWrapper();
 		Properties props = getProperties("url: com-kafka-qp.com.homedepot.com:9092");
 
 		Producer<String, String> producer = null;
 
 		produceMessage(xml, props, producer, "COM_ECC_XML_MESSAGE_TOPIC");
-		return eccParamWraper;
+		return eccParamWrapper;
 	}
 
 
 	@RequestMapping(value = "/kafkaProdTest",method = RequestMethod.POST)
 	@ResponseBody
 	public KafkaMessageWraper kafkaProdTest(@RequestBody() String xml) {
-		KafkaMessageWraper eccParamWraper = new KafkaMessageWraper();
-		eccParamWraper.setStatus(0);
-		eccParamWraper.setStatusDesc("success to Prod");
+		KafkaMessageWraper eccParamWrapper = new KafkaMessageWraper();
+		eccParamWrapper.setStatus(0);
+		eccParamWrapper.setStatusDesc("success to Prod");
 		Properties props = getProperties("com-kafka-pr.com.homedepot.com:9092");
 
 
 		Producer<String, String> producer = null;
 
 		produceMessage(xml, props, producer, "COM_ECC_XML_MESSAGE_TOPIC");
-		return eccParamWraper;
+		return eccParamWrapper;
 	}
-	// Keeping this here in case you want to uncomment and use this mapping to test locally :)
-//	@RequestMapping(value = "/kafkaLocalTest",method = RequestMethod.POST)
-//	@ResponseBody
-//	public KafkaMessageWraper kafkaTest(@RequestBody() String xml) {
-//		KafkaMessageWraper eccParamWraper = new KafkaMessageWraper();
-//		eccParamWraper.setStatus(0);
-//		eccParamWraper.setStatusDesc("success");
-//		Properties props = getProperties("url: com-kafka-qa.com.homedepot.com:9092");
-//
-//		Producer<String, String> producer = null;
-//
-//		produceMessage(xml, props, producer);
-//
-//		return eccParamWraper;
-//	}
+
+	private KafkaMessageWraper setupMessageWrapper() {
+		KafkaMessageWraper eccParamWrapper = new KafkaMessageWraper();
+		eccParamWrapper.setStatus(0);
+		eccParamWrapper.setStatusDesc("success");
+		return eccParamWrapper;
+	}
 
 
 	private Properties getProperties(String bootstrap) {

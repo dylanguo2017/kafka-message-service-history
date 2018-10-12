@@ -73,26 +73,26 @@ package com.homedepot.mm.cj.kafka.message.service;
 //	}
 ///*	public EccParamWraper getFlagDetail() {
 //		List<EccQaflagDto> eccQaflagDtoList = new ArrayList<EccQaflagDto>();
-//		EccParamWraper eccParamWraper=new EccParamWraper();
+//		EccParamWraper eccParamWrapper=new EccParamWraper();
 //
 //		try {
 //			eccQaflagDtoList = eCCParamDao.getFlag();
 //			
-//			eccParamWraper.setEccFlagDtoList(eccQaflagDtoList);
+//			eccParamWrapper.setEccFlagDtoList(eccQaflagDtoList);
 //
 //		} */
 ///*		catch (SQLException e) {
 //			e.printStackTrace();
 //		}
-//		return eccParamWraper;
+//		return eccParamWrapper;
 //	}*/
 //	
 //	@Override
-//	public void updateFlagDetail(EccParamWraper eccParamWraper){
+//	public void updateFlagDetail(EccParamWraper eccParamWrapper){
 //		List<EccParamResponse> eccQaFlagList=new ArrayList<EccParamResponse>();
 //		List<EccQaflagDto> eccQaflagDtoList = new ArrayList<EccQaflagDto>();
 //		EccQaflagDto eccQaflagDto=null;
-//		eccQaFlagList=eccParamWraper.getEccParamResponse();
+//		eccQaFlagList=eccParamWrapper.getEccParamResponse();
 //		for(EccParamResponse param : eccQaFlagList){
 //			eccQaflagDto=new EccQaflagDto();
 //			eccQaflagDto.setClient(param.getClient());

@@ -6,5 +6,5 @@ public interface KafkaMessageService {
 	
 	public KafkaMessageWraper getFlagDetail();
 	public KafkaMessageWraper getFlagDetailBySrcCd(String src_cd);
-	public void updateFlagDetail(KafkaMessageWraper eccParamWraper);
+	public void updateFlagDetail(KafkaMessageWraper eccParamWrapper);
 }

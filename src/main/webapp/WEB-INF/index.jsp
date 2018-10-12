@@ -25,14 +25,14 @@
 
 </div>
 
-	<form:form modelAttribute="eccParamWraper" method="post"
+	<form:form modelAttribute="eccParamWrapper" method="post"
 		action="/PcfParam/setEccPcfParam">
 		<div class="col-xs-6 col-md-4" >
 		<table>
 			<tr>
 				<td><input name="Select All" type="checkbox" id="all" />Select All</td>
 			</tr>
-			<c:forEach var="list" items="${eccParamWraper.eccParamResponse}"
+			<c:forEach var="list" items="${eccParamWrapper.eccParamResponse}"
 				varStatus="status">
 				<tr>
 					<td><input name="eccParamResponse[${status.index}].client"
