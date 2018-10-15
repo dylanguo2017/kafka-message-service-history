@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWraper;
+import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +26,8 @@ public class KafkaMessageController {
 
 	@RequestMapping(value = "/kafkaDevTest",method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageWraper kafkaDevTest(@RequestBody() String xml) {
-		KafkaMessageWraper eccParamWrapper = setupMessageWrapper();
+	public KafkaMessageWrapper kafkaDevTest(@RequestBody() String xml) {
+		KafkaMessageWrapper eccParamWrapper = setupMessageWrapper();
 		Properties props = getProperties("url: com-kafka-qa.com.homedepot.com:9092");
 
 		Producer<String, String> producer = null;
@@ -36,10 +36,10 @@ public class KafkaMessageController {
 		return eccParamWrapper;
 	}
 
-	@RequestMapping(value = "/kafkaDevTest",method = RequestMethod.POST)
+	@RequestMapping(value = "/kafkaQATest",method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageWraper kafkaQATest(@RequestBody() String xml) {
-		KafkaMessageWraper eccParamWrapper = setupMessageWrapper();
+	public KafkaMessageWrapper kafkaQATest(@RequestBody() String xml) {
+		KafkaMessageWrapper eccParamWrapper = setupMessageWrapper();
 		Properties props = getProperties("url: com-kafka-qa.com.homedepot.com:9092");
 
 		Producer<String, String> producer = null;
@@ -50,8 +50,8 @@ public class KafkaMessageController {
 
 	@RequestMapping(value = "/kafkaQPTest",method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageWraper kafkaQPTest(@RequestBody() String xml) {
-		KafkaMessageWraper eccParamWrapper = setupMessageWrapper();
+	public KafkaMessageWrapper kafkaQPTest(@RequestBody() String xml) {
+		KafkaMessageWrapper eccParamWrapper = setupMessageWrapper();
 		Properties props = getProperties("url: com-kafka-qp.com.homedepot.com:9092");
 
 		Producer<String, String> producer = null;
@@ -63,8 +63,8 @@ public class KafkaMessageController {
 
 	@RequestMapping(value = "/kafkaProdTest",method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageWraper kafkaProdTest(@RequestBody() String xml) {
-		KafkaMessageWraper eccParamWrapper = new KafkaMessageWraper();
+	public KafkaMessageWrapper kafkaProdTest(@RequestBody() String xml) {
+		KafkaMessageWrapper eccParamWrapper = new KafkaMessageWrapper();
 		eccParamWrapper.setStatus(0);
 		eccParamWrapper.setStatusDesc("success to Prod");
 		Properties props = getProperties("com-kafka-pr.com.homedepot.com:9092");
@@ -76,8 +76,8 @@ public class KafkaMessageController {
 		return eccParamWrapper;
 	}
 
-	private KafkaMessageWraper setupMessageWrapper() {
-		KafkaMessageWraper eccParamWrapper = new KafkaMessageWraper();
+	private KafkaMessageWrapper setupMessageWrapper() {
+		KafkaMessageWrapper eccParamWrapper = new KafkaMessageWrapper();
 		eccParamWrapper.setStatus(0);
 		eccParamWrapper.setStatusDesc("success");
 		return eccParamWrapper;
