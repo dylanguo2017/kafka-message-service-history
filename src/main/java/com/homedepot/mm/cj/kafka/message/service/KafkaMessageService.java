@@ -1,10 +1,12 @@
 package com.homedepot.mm.cj.kafka.message.service;
 
+import org.springframework.stereotype.Component;
+
 import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
 
+@Component
 public interface KafkaMessageService {
 	
-	public KafkaMessageWrapper getFlagDetail();
-	public KafkaMessageWrapper getFlagDetailBySrcCd(String src_cd);
-	public void updateFlagDetail(KafkaMessageWrapper eccParamWrapper);
+	public KafkaMessageWrapper sendKafkaMessage(String orderXML);
+	
 }

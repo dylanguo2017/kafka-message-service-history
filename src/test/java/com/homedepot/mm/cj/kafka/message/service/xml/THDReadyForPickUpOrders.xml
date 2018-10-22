@@ -1,0 +1,155 @@
+<Orders NotificationTypeCode="THD_READY_FOR_PICK_UP" SourceType="COM">
+  <Order CarrierAccountNo="" ChargeActualFreightFlag="N" CustomerPONo="" DeliveryCode="" Division="" DocumentType="0001" DraftOrderFlag="N" EAIQueueName="TA.CA.COM.EAI.UPDATE.NOTICE.CONFIRM" EnterpriseCode="HDUS" EntryType="" FreightTerms="" HoldFlag="N" HoldReasonCode="" MaxOrderStatus="3350.200" MaxOrderStatusDesc="Shipment Picked" MinOrderStatus="3350.200" MinOrderStatusDesc="Shipment Picked" MsgGeneratedTimeStamp="2016-07-11T15:22:26.351" NotificationTypeCode="THD_READY_FOR_PICK_UP" NotifyAfterShipmentFlag="N" OrderDate="2016-09-27T10:03:12.732" OrderDateSTORETZ="2016-07-11T13:51:24" OrderHeaderKey="201607111452034645823641" OrderName="" OrderNo="Y125124662" OrderType="" OriginalTax="0.00" OriginalTotalAmount="10.13" OtherCharges="0.00" PaymentStatus="NOT_APPLICABLE" PersonalizeCode="" PriorityCode="" PriorityNumber="0" Purpose="" SCAC="" ScacAndService="" ScacAndServiceKey="" SearchCriteria1="" SearchCriteria2="" SellerOrganizationCode="9752" Status="Shipment Picked" TaxExemptFlag="N" TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId="" TermsCode="" TotalAdjustmentAmount="0.00" isHistory="N">
+    <Extn ExtnHostOrderReference="W123Test456" ExtnUCMType="C"/>
+    <OrderLines>
+      <OrderLine AllocationDate="2016-07-11T00:00:00-04:00" CarrierAccountNo="" CarrierServiceCode="" CustomerLinePONo="" CustomerPONo="" DeliveryCode="" DeliveryMethod="PICK" DepartmentCode="" FreightTerms="" HoldFlag="N" HoldReasonCode="" ImportLicenseNo="" InvoicedQty="0.00" IsFirmPredefinedNode="Y" KitCode="" LineSeqNo="1.1" LineType="SL" MaxLineStatus="3350.200" MaxLineStatusDesc="Shipment Picked" MinLineStatus="3350.200" MinLineStatusDesc="Shipment Picked" OpenQty="0.00" OrderHeaderKey="201607111452034645823641" OrderLineKey="201607111452034645823642" OrderedQty="4.00" OriginalOrderedQty="4.00" OtherCharges="0.00" PackListType="" PersonalizeCode="" PersonalizeFlag="" PickableFlag="Y" PrimeLineNo="1" Purpose="" RemainingQty="4.00" ReservationID="" ReservationMandatory="N" ReservationPool="" SCAC="" ScacAndService="" ScacAndServiceKey="" ShipNode="9716" ShipTogetherNo="" SplitQty="0.00" Status="Shipment Picked" StatusQuantity="4.00" StoreName="Woodstock" SubLineNo="1" isHistory="N">
+        <PersonInfoShipTo AddressLine1="9037 Hwy 92, Suite 100" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="Woodstock" Company="" Country="US" DayPhone="4047025996" EMailID="" FirstName="Woodstock" LastName="Woodstock" MobilePhone="4047025996" State="GA" ZipCode="30189">
+          <Extn/>
+        </PersonInfoShipTo>
+        <Extn ExtnHostOrderLineReference="1001" ExtnInventoryTrackCode="TRACK" ExtnIsPreBOSS="N" ExtnMVendorNo="60087157" ExtnOrderCreateLocationType="VIRTUAL" ExtnPOCreateDate="2016-07-11T14:52:06-04:00" ExtnPONumber="" ExtnPreferredPickupLocation="SR-079" ExtnProductTypeCode="PRODUCT" ExtnRefundQuantity="0.0" ExtnReleaseType="P" ExtnSKUCode="735456" ExtnSellingLocation="9716" ExtnTenderQuantity="4.0">
+          <HDOnlineProductList>
+            <HDOnlineProduct CatalogOMSID="100004803" HDOnlineProductKey="201607111452064645823656"/>
+          </HDOnlineProductList>
+        </Extn>
+        <Item CostCurrency="" CountryOfOrigin="" CustomerItem="" CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN="" ItemDesc="20 lb. Zinc Plated Narrow D-Ring Hangers with Screws 3 Pack" ItemID="228488" ItemShortDesc="20 lb. Zinc Plated N" ItemWeight="0.038" ItemWeightUOM="LBS" ManufacturerItem="50206" ManufacturerItemDesc="" ManufacturerName="OOK" NMFCClass="" NMFCCode="" NMFCDescription="" ProductClass="GOOD" ProductLine="" ScheduleBCode="" SupplierItem="" SupplierItemDesc="" TaxProductCode="89998" UPCCode="" UnitCost="2.39" UnitOfMeasure="EA"/>
+        <LinePriceInfo DiscountPercentage="0.00" IsPriceLocked="N" LineTotal="10.13" ListPrice="0.00" RetailPrice="0.00" TaxableFlag="Y" UnitPrice="2.39"/>
+        <OrderDates>
+          <OrderDate DateTypeId="PICKUPDATE" ExpectedDate="2016-07-11T14:52:02-04:00" ExpectedDateSTORETZ="2016-07-11T13:52:02"/>
+          <OrderDate CancelDate="2016-08-10T00:00:00-04:00" DateTypeId="PICKUP_NOTIFICATION_DATE" ExpectedDate="2016-07-11T15:22:25-04:00"/>
+        </OrderDates>
+        <Instructions NumberOfInstructions="0"/>
+        <KitLines NumberOfKitLines="0"/>
+        <AdditionalAddresses NumberOfAdditionalAddresses="0"/>
+        <LineCharges/>
+        <LineTaxes>
+          <LineTax ChargeCategory="" ChargeName="" ChargeNameKey="" InvoicedTax="0.00" Reference_1="" Reference_2="" Reference_3="" RemainingTax="0.57" Tax="0.57" TaxName="Tax" TaxPercentage="6.00">
+            <Extn ExtnExtendedTaxPerLine="0.57"/>
+          </LineTax>
+          <LineTax ChargeCategory="" ChargeName="" ChargeNameKey="" InvoicedTax="0.00" Reference_1="" Reference_2="" Reference_3="" RemainingTax="0.00" Tax="0.00" TaxName="Sales" TaxPercentage="0.00">
+            <Extn ExtnExtendedTaxPerLine="0.00"/>
+          </LineTax>
+        </LineTaxes>
+        <OrderStatuses>
+          <OrderStatus OrderHeaderKey="201607111452034645823641" OrderLineKey="201607111452034645823642" OrderLineScheduleKey="201607111592034645826070" OrderReleaseKey="201607111503464645826069" OrderReleaseStatusKey="201607111532222445828184" PipelineKey="201105051510318675" ShipNode="9716" Status="3350.200" StatusDate="2016-07-11T15:22:23-04:00" StatusDescription="Shipment Picked" StatusQty="4.00" TotalQuantity="4.00"/>
+        </OrderStatuses>
+        <OrderLineTranQuantity FillQuantity="0.00" InvoicedQuantity="0.00" OpenQty="0.00" OrderedQty="4.00" OriginalOrderedQty="4.00" ReceivedQty="0.00" RemainingQty="4.00" SettledQuantity="0.00" ShippedQuantity="0.00" SplitQty="0.00" StatusQuantity="4.00" TranDiscrepancyQty="0.00" TransactionalUOM="EA"/>
+        <StoreHours>
+          <sunday>
+            <open>8:00</open>
+            <close>20:00</close>
+          </sunday>
+          <saturday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </saturday>
+          <tuesday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </tuesday>
+          <wednesday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </wednesday>
+          <thursday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </thursday>
+          <friday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </friday>
+          <monday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </monday>
+        </StoreHours>
+        <MapURL Url="http://dev.virtualearth.net/REST/V1/Imagery/Map/Road/9037 Hwy 92, Suite 100,Woodstock,GA 30189?mapLayer=TrafficFlow&amp;amp;mapSize=395,245&amp;amp;key=Aif9kL_IbQO95flnHttxLsFlCrSI7tAzf5FlUWJdLw-VN-J1LtxGVx6GUPrbnfqV"/>
+        <Product ProductURL="http://www.homedepot.com/p/OOK-20-lb-Zinc-Plated-Narrow-D-Ring-Hangers-with-Screws-3-Pack-50206/100004803"/>
+        <Image ImageURL="http://www.homedepot.com/catalog/productImages/65/67/67503d34-f7d3-4327-a922-bb0b2c63cac1_65.jpg"/>
+      </OrderLine>
+
+
+
+      <OrderLine AllocationDate="2016-07-11T00:00:00-04:00" CarrierAccountNo="" CarrierServiceCode="" CustomerLinePONo="" CustomerPONo="" DeliveryCode="" DeliveryMethod="PICK" DepartmentCode="" FreightTerms="" HoldFlag="N" HoldReasonCode="" ImportLicenseNo="" InvoicedQty="0.00" IsFirmPredefinedNode="Y" KitCode="" LineSeqNo="1.1" LineType="SL" MaxLineStatus="3350.200" MaxLineStatusDesc="Shipment Picked" MinLineStatus="3350.200" MinLineStatusDesc="Shipment Picked" OpenQty="0.00" OrderHeaderKey="201607111452034645823641" OrderLineKey="201607111452034645823642" OrderedQty="4.00" OriginalOrderedQty="4.00" OtherCharges="0.00" PackListType="" PersonalizeCode="" PersonalizeFlag="" PickableFlag="Y" PrimeLineNo="1" Purpose="" RemainingQty="4.00" ReservationID="" ReservationMandatory="N" ReservationPool="" SCAC="" ScacAndService="" ScacAndServiceKey="" ShipNode="9716" ShipTogetherNo="" SplitQty="0.00" Status="Shipment Picked" StatusQuantity="4.00" StoreName="Woodstock" SubLineNo="1" isHistory="N">
+        <PersonInfoShipTo AddressLine1="9037 Hwy 92, Suite 100" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="Woodstock" Company="" Country="US" DayPhone="4047025996" EMailID="" FirstName="Woodstock" LastName="Woodstock" MobilePhone="4047025996" State="GA" ZipCode="30189">
+          <Extn/>
+        </PersonInfoShipTo>
+        <Extn ExtnHostOrderLineReference="1001" ExtnInventoryTrackCode="TRACK" ExtnIsPreBOSS="N" ExtnMVendorNo="60087157" ExtnOrderCreateLocationType="VIRTUAL" ExtnPOCreateDate="2016-07-11T14:52:06-04:00" ExtnPONumber="" ExtnPreferredPickupLocation="SR-079" ExtnProductTypeCode="PRODUCT" ExtnRefundQuantity="0.0" ExtnReleaseType="P" ExtnSKUCode="735456" ExtnSellingLocation="9716" ExtnTenderQuantity="4.0">
+          <HDOnlineProductList>
+            <HDOnlineProduct CatalogOMSID="100004803" HDOnlineProductKey="201607111452064645823656"/>
+          </HDOnlineProductList>
+        </Extn>
+        <Item CostCurrency="" CountryOfOrigin="" CustomerItem="" CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN="" ItemDesc="READY FOR PICKUP EMAIL" ItemID="228488" ItemShortDesc="20 lb. Zinc Plated N" ItemWeight="0.038" ItemWeightUOM="LBS" ManufacturerItem="50206" ManufacturerItemDesc="" ManufacturerName="OOK" NMFCClass="" NMFCCode="" NMFCDescription="" ProductClass="GOOD" ProductLine="" ScheduleBCode="" SupplierItem="" SupplierItemDesc="" TaxProductCode="89998" UPCCode="" UnitCost="2.39" UnitOfMeasure="EA"/>
+        <LinePriceInfo DiscountPercentage="0.00" IsPriceLocked="N" LineTotal="10.13" ListPrice="0.00" RetailPrice="0.00" TaxableFlag="Y" UnitPrice="2.39"/>
+        <OrderDates>
+          <OrderDate DateTypeId="PICKUPDATE" ExpectedDate="2016-07-11T14:52:02-04:00" ExpectedDateSTORETZ="2016-07-11T13:52:02"/>
+          <OrderDate CancelDate="2016-08-10T00:00:00-04:00" DateTypeId="PICKUP_NOTIFICATION_DATE" ExpectedDate="2016-07-11T15:22:25-04:00"/>
+        </OrderDates>
+        <Instructions NumberOfInstructions="0"/>
+        <KitLines NumberOfKitLines="0"/>
+        <AdditionalAddresses NumberOfAdditionalAddresses="0"/>
+        <LineCharges/>
+        <LineTaxes>
+          <LineTax ChargeCategory="" ChargeName="" ChargeNameKey="" InvoicedTax="0.00" Reference_1="" Reference_2="" Reference_3="" RemainingTax="0.57" Tax="0.57" TaxName="Tax" TaxPercentage="6.00">
+            <Extn ExtnExtendedTaxPerLine="0.57"/>
+          </LineTax>
+          <LineTax ChargeCategory="" ChargeName="" ChargeNameKey="" InvoicedTax="0.00" Reference_1="" Reference_2="" Reference_3="" RemainingTax="0.00" Tax="0.00" TaxName="Sales" TaxPercentage="0.00">
+            <Extn ExtnExtendedTaxPerLine="0.00"/>
+          </LineTax>
+        </LineTaxes>
+        <OrderStatuses>
+          <OrderStatus OrderHeaderKey="201607111452034645823641" OrderLineKey="201607111452034645823642" OrderLineScheduleKey="201607111592034645826070" OrderReleaseKey="201607111503464645826069" OrderReleaseStatusKey="201607111532222445828184" PipelineKey="201105051510318675" ShipNode="9716" Status="3350.200" StatusDate="2016-07-11T15:22:23-04:00" StatusDescription="Shipment Picked" StatusQty="4.00" TotalQuantity="4.00"/>
+        </OrderStatuses>
+        <OrderLineTranQuantity FillQuantity="0.00" InvoicedQuantity="0.00" OpenQty="0.00" OrderedQty="4.00" OriginalOrderedQty="4.00" ReceivedQty="0.00" RemainingQty="4.00" SettledQuantity="0.00" ShippedQuantity="0.00" SplitQty="0.00" StatusQuantity="4.00" TranDiscrepancyQty="0.00" TransactionalUOM="EA"/>
+        <StoreHours>
+          <sunday>
+            <open>8:00</open>
+            <close>20:00</close>
+          </sunday>
+          <saturday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </saturday>
+          <tuesday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </tuesday>
+          <wednesday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </wednesday>
+          <thursday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </thursday>
+          <friday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </friday>
+          <monday>
+            <open>6:00</open>
+            <close>22:00</close>
+          </monday>
+        </StoreHours>
+        <MapURL Url="http://dev.virtualearth.net/REST/V1/Imagery/Map/Road/9037 Hwy 92, Suite 100,Woodstock,GA 30189?mapLayer=TrafficFlow&amp;amp;mapSize=395,245&amp;amp;key=Aif9kL_IbQO95flnHttxLsFlCrSI7tAzf5FlUWJdLw-VN-J1LtxGVx6GUPrbnfqV"/>
+        <Product ProductURL="http://www.homedepot.com/p/OOK-20-lb-Zinc-Plated-Narrow-D-Ring-Hangers-with-Screws-3-Pack-50206/100004803"/>
+        <Image ImageURL="http://www.homedepot.com/catalog/productImages/65/67/67503d34-f7d3-4327-a922-bb0b2c63cac1_65.jpg"/>
+      </OrderLine>
+    </OrderLines>
+    <PersonInfoShipTo AddressLine1="3078 Spring hill Pkwy" AddressLine2="Apt H" AddressLine3="" AddressLine4="" AddressLine5="" City="SMYRNA" Company="" Country="US" DayPhone="9999999" EMailID="TEST@homedepot.com" FirstName="Manjunathan" LastName="Kumarasamy" MobilePhone="" State="GA" ZipCode="30080">
+      <Extn/>
+    </PersonInfoShipTo>
+    <PersonInfoBillTo AddressLine1="3078 Spring hill Pkwy" AddressLine2="Apt H" AddressLine3="" AddressLine4="" AddressLine5="" City="SMYRNA" Company="" Country="US" DayPhone="9999999" EMailID="TEST@homedepot.com" FirstName="Manjunathan" LastName="Kumarasamy" MobilePhone="" State="GA" ZipCode="30080"/>
+    <AffectedNodes>
+      <AffectedNode ExtnAffectedNode="9716" ExtnMessageType="PICK_COMPLETE"/>
+    </AffectedNodes>
+    <StoreDirURL Url="http://www.homedepot.com/l/Woodstock/GA/Woodstock/30189/116"/>
+    <DesktopStoreLayout Url="https://hdcontent.homedepot.com/StoreAssets/StoreMaps/9716.pdf"/>
+    <MobileStoreLayout Url="http://m.homedepot.com/store/detail/Four-Points--W-Austin/9716/layout"/>
+    <TotalShippingCharge value="0.0"/>
+    <TotalDiscount value="0.0"/>
+    <TotalTax value="0.57"/>
+    <MerchandiseSubtotal value="9.56"/>
+    <TotalOrderAmount value="10.13"/>
+  </Order>
+</Orders>

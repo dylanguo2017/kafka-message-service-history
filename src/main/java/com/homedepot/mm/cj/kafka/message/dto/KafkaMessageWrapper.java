@@ -20,14 +20,5 @@ public class KafkaMessageWrapper extends Response{
 	public void setEccParamResponse(List<KafkaMessageResponse> eccParamResponse) {
 		this.eccParamResponse = eccParamResponse;
 	}
-	
-/*	private List<EccQaflagDto> eccFlagDtoList;
 
-	public List<EccQaflagDto> getEccFlagDtoList() {
-		return eccFlagDtoList;
-	}
-
-	public void setEccFlagDtoList(List<EccQaflagDto> eccFlagDtoList) {
-		this.eccFlagDtoList = eccFlagDtoList;
-	}*/
 }

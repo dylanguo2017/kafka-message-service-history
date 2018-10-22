@@ -57,7 +57,17 @@
 			"org": "EnterpriseCustomerCommunication"
 		},
 		"artifactCategory": "snapshot",
-		"associatedBranchName": "develop"
+		"associatedBranchName": "master"
+	},
+	"stage": {
+		"cf": {
+			"apiEndpoint": "api.run-np.homedepot.com",
+			"domain": "apps-np.homedepot.com",
+			"space": "QA",
+			"org": "EnterpriseCustomerCommunication"
+		},
+		"artifactCategory": "snapshot",
+		"associatedBranchName": "master"
 	}
 
 }
