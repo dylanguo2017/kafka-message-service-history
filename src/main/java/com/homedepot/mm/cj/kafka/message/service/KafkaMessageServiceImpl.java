@@ -30,7 +30,7 @@ public class KafkaMessageServiceImpl  implements KafkaMessageService {
 	KafkaMessageWraper kafkaMessageWraper;
 	
 	@Autowired
-	public KafkaMessageServiceImpl(KafkaMessageWraper kafkaMessageWraper, @Value("${kafka.server.url}") String kafkaTopicName,  @Value("${kafka.server.topic}") String kafkaServerUrl) {
+	public KafkaMessageServiceImpl(KafkaMessageWraper kafkaMessageWraper, @Value("${kafka.server.topic}") String kafkaTopicName,  @Value("${kafka.server.url}") String kafkaServerUrl) {
 		this.kafkaTopicName = kafkaTopicName;
 		this.kafkaServerUrl = kafkaServerUrl;
 		this.kafkaMessageWraper = kafkaMessageWraper;
