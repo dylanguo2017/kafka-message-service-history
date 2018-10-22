@@ -11,7 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWraper;
+import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
 import com.homedepot.mm.cj.kafka.message.service.KafkaMessageServiceImpl;
 
 public class KafkaMessageControllerTest {
@@ -25,21 +25,21 @@ public class KafkaMessageControllerTest {
 	KafkaMessageServiceImpl kafkaMessageServiceImplMock;
 	
 	@Mock
-	KafkaMessageWraper eccParamWraperMock;
+	KafkaMessageWrapper eccParamWraperMock;
 
 	@InjectMocks
 	KafkaMessageController kafkaMessageController;
 	
 	@Test
 	public void invalidRequestXML() {
-		KafkaMessageWraper eccParamWraper = kafkaMessageController.kafkaSendMessage("");
+		KafkaMessageWrapper eccParamWraper = kafkaMessageController.kafkaSendMessage("");
 		assertEquals(null,eccParamWraper);
 	}
 	
 	@Test
 	public void validRequestXML() {
 		when(kafkaMessageServiceImplMock.sendKafkaMessage(anyString())).thenReturn(eccParamWraperMock);
-		KafkaMessageWraper eccParamWraper = kafkaMessageController.kafkaSendMessage("<Orders><Order></Order></Orders>");
+		KafkaMessageWrapper eccParamWraper = kafkaMessageController.kafkaSendMessage("<Orders><Order></Order></Orders>");
 		assertNotNull(eccParamWraper);
 	}
 

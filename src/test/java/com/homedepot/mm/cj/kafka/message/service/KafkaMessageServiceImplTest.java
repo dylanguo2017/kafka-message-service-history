@@ -24,7 +24,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWraper;
+import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
 
 public class KafkaMessageServiceImplTest {
 
@@ -37,7 +37,7 @@ public class KafkaMessageServiceImplTest {
 	KafkaMessageServiceImpl kafkaMessageServiceImplMock;
 	
 	@Mock
-	KafkaMessageWraper eccParamWraperMock;
+	KafkaMessageWrapper eccParamWraperMock;
 	
 	@Mock
 	Producer<String, String> producerMock; 

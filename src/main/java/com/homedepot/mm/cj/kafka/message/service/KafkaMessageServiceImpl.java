@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWraper;
+import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
 
 @Service
 public class KafkaMessageServiceImpl  implements KafkaMessageService {
@@ -27,18 +27,18 @@ public class KafkaMessageServiceImpl  implements KafkaMessageService {
 	
 	private String kafkaServerUrl;
 	
-	KafkaMessageWraper kafkaMessageWraper;
+	KafkaMessageWrapper kafkaMessageWraper;
 	
 	@Autowired
-	public KafkaMessageServiceImpl(KafkaMessageWraper kafkaMessageWraper, @Value("${kafka.server.topic}") String kafkaTopicName,  @Value("${kafka.server.url}") String kafkaServerUrl) {
+	public KafkaMessageServiceImpl(KafkaMessageWrapper kafkaMessageWraper, @Value("${kafka.server.topic}") String kafkaTopicName,  @Value("${kafka.server.url}") String kafkaServerUrl) {
 		this.kafkaTopicName = kafkaTopicName;
 		this.kafkaServerUrl = kafkaServerUrl;
 		this.kafkaMessageWraper = kafkaMessageWraper;
 	}
 	 
-	public KafkaMessageWraper sendKafkaMessage(String requestXML) {
+	public KafkaMessageWrapper sendKafkaMessage(String requestXML) {
 		
-		kafkaMessageWraper = new KafkaMessageWraper();
+		kafkaMessageWraper = new KafkaMessageWrapper();
 
 		kafkaMessageWraper.setStatus(0);
 		kafkaMessageWraper.setStatusDesc("success");

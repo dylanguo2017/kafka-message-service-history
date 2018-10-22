@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 @Component
-public class KafkaMessageWraper extends Response{
+public class KafkaMessageWrapper extends Response{
 
 	@Override
 	public String toString() {

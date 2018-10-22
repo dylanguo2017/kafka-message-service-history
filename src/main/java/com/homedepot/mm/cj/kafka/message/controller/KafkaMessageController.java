@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWraper;
+import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
 import com.homedepot.mm.cj.kafka.message.service.KafkaMessageService;
 
 @Controller
@@ -24,19 +24,19 @@ public class KafkaMessageController {
 
 	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageWraper kafkaSendMessage(@RequestBody() String xml) {
+	public KafkaMessageWrapper kafkaSendMessage(@RequestBody() String xml) {
 
 		LOGGER.debug("Start kafkaSendMessage()");
-		KafkaMessageWraper eccParamWraper = new KafkaMessageWraper();
+		KafkaMessageWrapper kafkaMessageWrapper = new KafkaMessageWrapper();
 		if (!StringUtils.isEmpty(xml)) {
-			eccParamWraper = kafkaMessageService.sendKafkaMessage(xml);
+			kafkaMessageWrapper = kafkaMessageService.sendKafkaMessage(xml);
 		} else {
-			eccParamWraper = null;
+			kafkaMessageWrapper = null;
 			LOGGER.debug("Request XML for Kafka Service is Empty.");
 		}
 
 		LOGGER.debug("End kafkaSendMessage()");
-		return eccParamWraper;
+		return kafkaMessageWrapper;
 	}
 
 	@RequestMapping("/health")
