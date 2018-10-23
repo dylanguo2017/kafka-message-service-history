@@ -1,0 +1,16 @@
+# .pairs - configuration for 'git pair'
+# place in project or home directory
+pairs:
+  tm: Theoren Mathias; Theoren_Mathia
+  jm: James Morse; jrm3yjg; squidmin
+  mf: Meron Fissha; meron_fissha
+  pg: Paul Gosser; paul_gosser1
+  pj: Pierre Jimenez; pierre_jimenez
+  jl: Jose Laguardia; jose_laguardia
+  dg: Dylan Guo; chuanjing_guo
+  jj: Justin Jones; justin
+  cr: Carlo Rodriguez; carlo
+  mk: Manjunathan Kumar; manju
+email:
+  prefix: pair
+  domain: homedepot.com

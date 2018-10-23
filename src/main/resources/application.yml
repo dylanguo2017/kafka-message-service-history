@@ -1,0 +1,63 @@
+# default
+---
+spring:
+ profiles:  default
+
+kafka:
+ server:
+  topic: COM_ECC_XML_MESSAGE_TOPIC_AD
+  url: com-kafka-qa.com.homedepot.com:9092
+         
+# test
+---
+spring:
+ profiles:  test
+
+kafka:
+ server:
+  topic: COM_ECC_XML_MESSAGE_TOPIC_AD
+  url: com-kafka-qa.com.homedepot.com:9092
+         
+      
+#development
+---
+spring:
+  profiles:  development
+  
+kafka:
+  server:
+    topic: COM_ECC_XML_MESSAGE_TOPIC_AD
+    url: com-kafka-qa.com.homedepot.com:9092
+
+      
+# QA
+---
+spring:
+  profiles:  qa
+
+kafka:
+  server:
+    topic: COM_ECC_XML_MESSAGE_TOPIC
+    url: com-kafka-qa.com.homedepot.com:9092
+          
+  # QP
+---
+spring:
+  profiles:  qp
+  
+kafka:
+  server:
+    topic: COM_ECC_XML_MESSAGE_TOPIC
+    url: com-kafka-qp.com.homedepot.com:9092
+      
+   
+  # PRODUCTION
+---
+spring:
+  profiles:  production
+  
+kafka:
+  server:
+    topic: COM_ECC_XML_MESSAGE_TOPIC
+    url: com-kafka-pr.com.homedepot.com:9092
+    
