@@ -50,7 +50,7 @@ public class KafkaMessageServiceImpl  implements KafkaMessageService {
 		Producer<String, String> producer = null;
 
 		try {
-			producer = new KafkaProducer<String, String>(props);
+			producer = new KafkaProducer<>(props);
 			ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(
 					kafkaTopicName, requestXML);
 			Future<RecordMetadata> recordMetaData = producer

@@ -6,7 +6,7 @@ spring:
 kafka:
  server:
   topic: COM_ECC_XML_MESSAGE_TOPIC_AD
-  url: com-kafka-qa.com.homedepot.com:9092
+  url: ecc-virtualBox:9092
          
 # test
 ---
