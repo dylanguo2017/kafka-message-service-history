@@ -8,5 +8,7 @@ import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
 public interface KafkaMessageService {
 	
 	public KafkaMessageWrapper sendKafkaMessage(String orderXML);
+
+	public KafkaMessageWrapper sendToKafkaConnector(String orderXML);
 	
 }

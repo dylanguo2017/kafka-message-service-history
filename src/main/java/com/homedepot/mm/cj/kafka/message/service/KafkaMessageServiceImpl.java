@@ -27,13 +27,17 @@ public class KafkaMessageServiceImpl  implements KafkaMessageService {
 	
 	private String kafkaServerUrl;
 	
+	private String kafkaConnectorTopicName;
+	
 	KafkaMessageWrapper kafkaMessageWraper;
 	
 	@Autowired
-	public KafkaMessageServiceImpl(KafkaMessageWrapper kafkaMessageWraper, @Value("${kafka.server.topic}") String kafkaTopicName,  @Value("${kafka.server.url}") String kafkaServerUrl) {
+	public KafkaMessageServiceImpl(KafkaMessageWrapper kafkaMessageWraper, @Value("${kafka.server.topic}") String kafkaTopicName,  @Value("${kafka.server.url}") String kafkaServerUrl,
+								   @Value("${kafka.server.Connector}") String kafkaConnectorTopicName) {
 		this.kafkaTopicName = kafkaTopicName;
 		this.kafkaServerUrl = kafkaServerUrl;
 		this.kafkaMessageWraper = kafkaMessageWraper;
+		this.kafkaConnectorTopicName = kafkaConnectorTopicName;
 	}
 	 
 	public KafkaMessageWrapper sendKafkaMessage(String requestXML) {
@@ -69,5 +73,39 @@ public class KafkaMessageServiceImpl  implements KafkaMessageService {
 		return kafkaMessageWraper;
 	}
 
-	
+
+	public KafkaMessageWrapper sendToKafkaConnector(String requestXML) {
+
+		kafkaMessageWraper = new KafkaMessageWrapper();
+
+		kafkaMessageWraper.setStatus(0);
+		kafkaMessageWraper.setStatusDesc("success");
+		Properties props = new Properties();
+		props.put("bootstrap.servers",kafkaServerUrl);
+		props.put("key.serializer",SERIALIZER_KEY);
+		props.put("value.serializer",SERIALIZER_VALUE);
+
+		Producer<String, String> producer = null;
+
+		try {
+			producer = new KafkaProducer<>(props);
+			ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(
+					kafkaConnectorTopicName, requestXML);
+			Future<RecordMetadata> recordMetaData = producer
+					.send(producerRecord);
+			RecordMetadata recdMetaData = recordMetaData.get();
+			LOGGER.debug("recdMetaData.topic() ==>"+recdMetaData.topic());
+			LOGGER.debug("recdMetaData.offset() ==>"+recdMetaData.offset());
+		} catch (Exception e) {
+			kafkaMessageWraper.setStatus(1);
+			kafkaMessageWraper.setStatusDesc("failure");
+			LOGGER.error("Exception in Kafka MEssage process"+e.getMessage());
+		}
+		finally {
+			producer.close();
+		}
+		return kafkaMessageWraper;
+	}
+
+
 }
