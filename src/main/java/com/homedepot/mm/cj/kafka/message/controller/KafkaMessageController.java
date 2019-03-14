@@ -39,6 +39,23 @@ public class KafkaMessageController {
 		return kafkaMessageWrapper;
 	}
 
+	@RequestMapping(value = "/sendToKafkaConnector", method = RequestMethod.POST)
+	@ResponseBody
+	public KafkaMessageWrapper kafkaSendMessageToKafkaConnector(@RequestBody() String xml) {
+
+		LOGGER.debug("Start kafkaSendMessage()");
+		KafkaMessageWrapper kafkaMessageWrapper = new KafkaMessageWrapper();
+		if (!StringUtils.isEmpty(xml)) {
+			kafkaMessageWrapper = kafkaMessageService.sendToKafkaConnector(xml);
+		} else {
+			kafkaMessageWrapper = null;
+			LOGGER.debug("Request XML for Kafka Service is Empty.");
+		}
+
+		LOGGER.debug("End kafkaSendMessage()");
+		return kafkaMessageWrapper;
+	}
+
 	@RequestMapping("/health")
 	public String health() {
 		return "{\"response\" : 200}";

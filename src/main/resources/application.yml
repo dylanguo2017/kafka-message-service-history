@@ -7,6 +7,7 @@ kafka:
  server:
   topic: ECC-TCLD-Topic-AD
   url: ecc-VirtualBox:9092
+  connector: COM_ECC_XML_MESSAGE_TOPIC_AD
          
 # test
 ---
@@ -17,6 +18,7 @@ kafka:
  server:
   topic: ECC-TCLD-Topic-AD
   url: com-kafka-qa.com.homedepot.com:9092
+  connector: COM_ECC_XML_MESSAGE_TOPIC_AD
          
       
 #development
@@ -28,6 +30,7 @@ kafka:
   server:
     topic: ECC-TCLD-Topic-AD
     url: com-kafka-qa.com.homedepot.com:9092
+    connector: COM_ECC_XML_MESSAGE_TOPIC_AD
 
       
 # QA
@@ -39,6 +42,7 @@ kafka:
   server:
     topic: ECC-TCLD-Topic-QA
     url: com-kafka-qa.com.homedepot.com:9092
+    connector: COM_ECC_XML_MESSAGE_TOPIC
           
   # QP
 ---
@@ -49,6 +53,7 @@ kafka:
   server:
     topic: ECC-TCLD-Topic-QP
     url: com-kafka-qp.com.homedepot.com:9092
+    connector: COM_ECC_XML_MESSAGE_TOPIC
       
    
   # PRODUCTION
@@ -60,4 +65,5 @@ kafka:
   server:
     topic: ECC-TCLD-Topic
     url: com-kafka-pr.com.homedepot.com:9092
+    connector: COM_ECC_XML_MESSAGE_TOPIC
     

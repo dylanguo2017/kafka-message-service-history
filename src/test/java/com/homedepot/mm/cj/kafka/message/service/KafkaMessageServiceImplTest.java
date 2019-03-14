@@ -51,7 +51,7 @@ public class KafkaMessageServiceImplTest {
         String message = convertXMLFileToString(fileName);
        
 		when(producerMock.send(any())).thenReturn(recordMetaDataMock);
-		kafkaMessageServiceImplMock = new KafkaMessageServiceImpl(eccParamWraperMock, "COM_ECC_XML_MESSAGE_TOPIC_AD","com-kafka-qa.com.homedepot.com:9092");
+		kafkaMessageServiceImplMock = new KafkaMessageServiceImpl(eccParamWraperMock, "COM_ECC_XML_MESSAGE_TOPIC_AD","com-kafka-qa.com.homedepot.com:9092", "COM_ECC_XML_MESSAGE_TOPIC_AD");
 		eccParamWraperMock = kafkaMessageServiceImplMock.sendKafkaMessage(message);
 		assertEquals(0, eccParamWraperMock.getStatus());
 		assertEquals("success", eccParamWraperMock.getStatusDesc());
