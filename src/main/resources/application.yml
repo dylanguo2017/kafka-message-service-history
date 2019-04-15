@@ -6,8 +6,9 @@ spring:
 kafka:
  server:
   topic: ECC-TCLD-Topic-AD
-  url: ecc-VirtualBox:9092
+  url: com-kafka-qa.com.homedepot.com:9092
   connector: COM_ECC_XML_MESSAGE_TOPIC_AD
+  json: COM_ECC_JSON_MESSAGE_TOPIC_AD
          
 # test
 ---
@@ -19,8 +20,10 @@ kafka:
   topic: ECC-TCLD-Topic-AD
   url: com-kafka-qa.com.homedepot.com:9092
   connector: COM_ECC_XML_MESSAGE_TOPIC_AD
-         
-      
+  json: COM_ECC_JSON_MESSAGE_TOPIC_AD
+
+
+
 #development
 ---
 spring:
@@ -31,8 +34,10 @@ kafka:
     topic: ECC-TCLD-Topic-AD
     url: com-kafka-qa.com.homedepot.com:9092
     connector: COM_ECC_XML_MESSAGE_TOPIC_AD
+    json: COM_ECC_JSON_MESSAGE_TOPIC_AD
 
-      
+
+
 # QA
 ---
 spring:
@@ -43,7 +48,8 @@ kafka:
     topic: ECC-TCLD-Topic-QA
     url: com-kafka-qa.com.homedepot.com:9092
     connector: COM_ECC_XML_MESSAGE_TOPIC
-          
+    json: COM_ECC_JSON_MESSAGE_TOPIC
+
   # QP
 ---
 spring:
@@ -54,8 +60,9 @@ kafka:
     topic: ECC-TCLD-Topic-QP
     url: com-kafka-qp.com.homedepot.com:9092
     connector: COM_ECC_XML_MESSAGE_TOPIC
-      
-   
+    json: COM_ECC_JSON_MESSAGE_TOPIC
+
+
   # PRODUCTION
 ---
 spring:
@@ -66,4 +73,4 @@ kafka:
     topic: ECC-TCLD-Topic
     url: com-kafka-pr.com.homedepot.com:9092
     connector: COM_ECC_XML_MESSAGE_TOPIC
-    
+    json: COM_ECC_JSON_MESSAGE_TOPIC

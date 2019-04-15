@@ -1,5 +1,6 @@
 package com.homedepot.mm.cj.kafka.message.controller;
 
+import com.homedepot.mm.cj.kafka.message.service.KafkaMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageWrapper;
-import com.homedepot.mm.cj.kafka.message.service.KafkaMessageService;
+import com.homedepot.mm.cj.kafka.message.dto.KafkaMessageResponse;
 
 @Controller
 @RequestMapping("/kafka")
@@ -24,38 +24,48 @@ public class KafkaMessageController {
 
 	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageWrapper kafkaSendMessage(@RequestBody() String xml) {
+	public KafkaMessageResponse kafkaSendMessage(@RequestBody() String xml) {
 
 		LOGGER.debug("Start kafkaSendMessage()");
-		KafkaMessageWrapper kafkaMessageWrapper = new KafkaMessageWrapper();
+		KafkaMessageResponse kafkaMessageResponse;
 		if (!StringUtils.isEmpty(xml)) {
-			kafkaMessageWrapper = kafkaMessageService.sendKafkaMessage(xml);
+			kafkaMessageResponse = kafkaMessageService.sendKafkaMessage(xml);
 		} else {
-			kafkaMessageWrapper = null;
+			kafkaMessageResponse = null;
 			LOGGER.debug("Request XML for Kafka Service is Empty.");
 		}
 
 		LOGGER.debug("End kafkaSendMessage()");
-		return kafkaMessageWrapper;
+		return kafkaMessageResponse;
 	}
 
 	@RequestMapping(value = "/sendToKafkaConnector", method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageWrapper kafkaSendMessageToKafkaConnector(@RequestBody() String xml) {
+	public KafkaMessageResponse kafkaSendMessageToKafkaConnector(@RequestBody() String xml) {
 
 		LOGGER.debug("Start kafkaSendMessage()");
-		KafkaMessageWrapper kafkaMessageWrapper = new KafkaMessageWrapper();
+		KafkaMessageResponse kafkaMessageResponse;
 		if (!StringUtils.isEmpty(xml)) {
-			kafkaMessageWrapper = kafkaMessageService.sendToKafkaConnector(xml);
+			kafkaMessageResponse = kafkaMessageService.sendToKafkaConnector(xml);
 		} else {
-			kafkaMessageWrapper = null;
+			kafkaMessageResponse = null;
 			LOGGER.debug("Request XML for Kafka Service is Empty.");
 		}
 
 		LOGGER.debug("End kafkaSendMessage()");
-		return kafkaMessageWrapper;
+		return kafkaMessageResponse;
 	}
+	@RequestMapping(value = "/sendToKafkaConnectorJson", method = RequestMethod.POST)
+	@ResponseBody
+	public KafkaMessageResponse kafkaSendMessageToKafkaConnectorJson(@RequestBody() String json) {
+		KafkaMessageResponse kafkaMessageResponse = new KafkaMessageResponse();
 
+		if (!StringUtils.isEmpty(json)) {
+			kafkaMessageResponse = kafkaMessageService.sendJsonToKafkaConnector(json);
+		}
+
+		return kafkaMessageResponse;
+	}
 	@RequestMapping("/health")
 	public String health() {
 		return "{\"response\" : 200}";
