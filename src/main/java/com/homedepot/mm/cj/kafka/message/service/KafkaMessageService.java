@@ -65,9 +65,11 @@ public class KafkaMessageService{
 
         Properties props = setUpCommonProperties();
 
-        Producer<String, String> producer = new KafkaProducer<>(props);
+        Producer<String, String> producer =null;
 
         try {
+
+            producer = new KafkaProducer<>(props);
             ProducerRecord<String, String> producerRecord = new ProducerRecord<>(topicName,
               payload);
 
@@ -75,12 +77,11 @@ public class KafkaMessageService{
               .send(producerRecord);
 
             RecordMetadata recdMetaData = recordMetaData.get();
-
+            kafkaMessageResponse.setStatus(0);
+            kafkaMessageResponse.setStatusDesc("success");
             LOGGER.debug("recdMetaData.topic() ==>" + recdMetaData.topic());
             LOGGER.debug("recdMetaData.offset() ==>" + recdMetaData.offset());
         } catch (Exception e) {
-            kafkaMessageResponse.setStatus(1);
-            kafkaMessageResponse.setStatusDesc("failure");
             LOGGER.error("Exception in Kafka MEssage process" + e.getMessage());
         } finally {
             producer.close();
@@ -89,8 +90,8 @@ public class KafkaMessageService{
 
     private Properties setUpCommonProperties() {
         Properties props = new Properties();
-        kafkaMessageResponse.setStatus(0);
-        kafkaMessageResponse.setStatusDesc("success");
+        kafkaMessageResponse.setStatus(1);
+        kafkaMessageResponse.setStatusDesc("failure");
         props.put("bootstrap.servers", kafkaServerUrl);
         props.put("key.serializer", SERIALIZER_KEY);
         props.put("value.serializer", SERIALIZER_VALUE);

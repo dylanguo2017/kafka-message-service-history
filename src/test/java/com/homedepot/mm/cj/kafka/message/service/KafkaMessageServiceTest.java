@@ -10,13 +10,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.concurrent.Future;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -27,13 +31,23 @@ public class KafkaMessageServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
+
     @Mock
     KafkaMessageService kafkaMessageServiceMock;
+
+    @Mock
+    Producer<String, String> producer;
+
+    @Mock
+    Future<RecordMetadata> recordMetadata;
 
     @Test
     public void validInputXML() {
         String fileName = "./src/test/java/com/homedepot/mm/cj/kafka/message/service/xml/THDReadyForPickUpOrders.xml";
         String message = convertXMLFileToString(fileName);
+//        kafkaMessageServiceMock = new KafkaMessageService("com-kafka-qa.com.homedepot.com:9092",
+//          "ECC-TCLD-Topic-AD",
+//          "COM_ECC_XML_MESSAGE_TOPIC_AD", "COM_ECC_JSON_MESSAGE_TOPIC_AD");
         KafkaMessageResponse expectedResponse = KafkaMessageResponse.builder().statusDesc("success")
           .status(0).build();
         when(kafkaMessageServiceMock.sendMessageToTcld(any())).thenReturn(KafkaMessageResponse.builder().statusDesc("success")
