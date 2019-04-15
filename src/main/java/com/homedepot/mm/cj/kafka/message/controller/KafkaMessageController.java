@@ -24,45 +24,53 @@ public class KafkaMessageController {
 
 	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageResponse kafkaSendMessage(@RequestBody() String xml) {
+	public KafkaMessageResponse sendKafkaMessageToTCLD(@RequestBody() String xml) {
 
-		LOGGER.debug("Start kafkaSendMessage()");
+		LOGGER.debug("Start sendKafkaMessageToTCLD()");
 		KafkaMessageResponse kafkaMessageResponse;
 		if (!StringUtils.isEmpty(xml)) {
-			kafkaMessageResponse = kafkaMessageService.sendKafkaMessage(xml);
+			kafkaMessageResponse = kafkaMessageService.sendMessageToTcld(xml);
 		} else {
 			kafkaMessageResponse = null;
 			LOGGER.debug("Request XML for Kafka Service is Empty.");
 		}
 
-		LOGGER.debug("End kafkaSendMessage()");
+		LOGGER.debug("End sendKafkaMessageToTCLD()");
 		return kafkaMessageResponse;
 	}
 
 	@RequestMapping(value = "/sendToKafkaConnector", method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageResponse kafkaSendMessageToKafkaConnector(@RequestBody() String xml) {
+	public KafkaMessageResponse sendKafkaMessageToGCPXMLflow(@RequestBody() String xml) {
 
-		LOGGER.debug("Start kafkaSendMessage()");
+		LOGGER.debug("Start sendKafkaMessageToGCPXMLflow()");
 		KafkaMessageResponse kafkaMessageResponse;
 		if (!StringUtils.isEmpty(xml)) {
-			kafkaMessageResponse = kafkaMessageService.sendToKafkaConnector(xml);
+			kafkaMessageResponse = kafkaMessageService.sendXmlMessageToGCP(xml);
 		} else {
 			kafkaMessageResponse = null;
 			LOGGER.debug("Request XML for Kafka Service is Empty.");
 		}
 
-		LOGGER.debug("End kafkaSendMessage()");
+		LOGGER.debug("End sendKafkaMessageToGCPXMLflow()");
 		return kafkaMessageResponse;
 	}
-	@RequestMapping(value = "/sendToKafkaConnectorJson", method = RequestMethod.POST)
+	@RequestMapping(value = "/sendJsonToKafkaConnector", method = RequestMethod.POST)
 	@ResponseBody
-	public KafkaMessageResponse kafkaSendMessageToKafkaConnectorJson(@RequestBody() String json) {
-		KafkaMessageResponse kafkaMessageResponse = new KafkaMessageResponse();
+	public KafkaMessageResponse sendKafkaMessageToGCPJSONflow(@RequestBody() String json) {
+
+		KafkaMessageResponse kafkaMessageResponse;
+
+		LOGGER.debug("Start sendKafkaMessageToGCPJSONflow()");
 
 		if (!StringUtils.isEmpty(json)) {
-			kafkaMessageResponse = kafkaMessageService.sendJsonToKafkaConnector(json);
+			kafkaMessageResponse = kafkaMessageService.sendJsonMessageToGCP(json);
+		} else {
+			kafkaMessageResponse = null;
+			LOGGER.debug("Request JSON for Kafka Service is Empty.");
 		}
+
+		LOGGER.debug("End sendKafkaMessageToGCPJSONflow()");
 
 		return kafkaMessageResponse;
 	}

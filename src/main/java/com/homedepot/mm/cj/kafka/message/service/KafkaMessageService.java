@@ -45,7 +45,23 @@ public class KafkaMessageService{
         this.kafkaGCP_JSONTopicName = kafkaGCP_JSONTopicName;
     }
 
-    private void sendMessageToTopic(String payload, String topicName) {
+
+    public KafkaMessageResponse sendMessageToTcld(String xmlPayload){
+        sendMessageToTopic(xmlPayload, kafkaTCLDTopicName );
+        return kafkaMessageResponse;
+    }
+
+    public KafkaMessageResponse sendXmlMessageToGCP(String xmlPayload){
+        sendMessageToTopic(xmlPayload, kafkaGCP_XMLTopicName );
+        return kafkaMessageResponse;
+    }
+
+    public KafkaMessageResponse sendJsonMessageToGCP(String jsonPayload){
+        sendMessageToTopic(jsonPayload, kafkaGCP_JSONTopicName );
+        return kafkaMessageResponse;
+    }
+
+    public void sendMessageToTopic(String payload, String topicName) {
 
         Properties props = setUpCommonProperties();
 

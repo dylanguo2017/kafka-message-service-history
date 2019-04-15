@@ -1,6 +1,7 @@
 package com.homedepot.mm.cj.kafka.message.service;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -9,17 +10,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.util.concurrent.Future;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.RecordMetadata;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -30,31 +27,20 @@ public class KafkaMessageServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @InjectMocks
-    KafkaMessageService kafkaMessageServiceImplMock;
-
     @Mock
-    KafkaMessageResponse eccParamWraperMock;
-
-    @Mock
-    Producer<String, String> producerMock;
-
-    @Mock
-    Future<RecordMetadata> recordMetaDataMock;
+    KafkaMessageService kafkaMessageServiceMock;
 
     @Test
     public void validInputXML() {
         String fileName = "./src/test/java/com/homedepot/mm/cj/kafka/message/service/xml/THDReadyForPickUpOrders.xml";
         String message = convertXMLFileToString(fileName);
+        KafkaMessageResponse expectedResponse = KafkaMessageResponse.builder().statusDesc("success")
+          .status(0).build();
+        when(kafkaMessageServiceMock.sendMessageToTcld(any())).thenReturn(KafkaMessageResponse.builder().statusDesc("success")
+          .status(0).build());
+        KafkaMessageResponse actualResponse = kafkaMessageServiceMock.sendMessageToTcld(message);
+        assertThat(actualResponse, is(expectedResponse));
 
-        when(producerMock.send(any())).thenReturn(recordMetaDataMock);
-        kafkaMessageServiceImplMock = new KafkaMessageService(eccParamWraperMock,
-          "COM_ECC_XML_MESSAGE_TOPIC_AD", "com-kafka-qa.com.homedepot.com:9092",
-          "COM_ECC_XML_MESSAGE_TOPIC_AD",
-          "COM_ECC_JSON_MESSAGE_TOPIC_AD");
-        eccParamWraperMock = kafkaMessageServiceImplMock.sendKafkaMessage(message);
-        assertEquals(0, eccParamWraperMock.getStatus());
-        assertEquals("success", eccParamWraperMock.getStatusDesc());
     }
 
     public static String convertXMLFileToString(String fileName) {
