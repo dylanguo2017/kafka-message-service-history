@@ -59,11 +59,11 @@
 		"artifactCategory": "snapshot",
 		"associatedBranchName": "master"
 	},
-	"stage": {
+	"qp": {
 		"cf": {
 			"apiEndpoint": "api.run-np.homedepot.com",
 			"domain": "apps-np.homedepot.com",
-			"space": "QA",
+			"space": "QP",
 			"org": "EnterpriseCustomerCommunication"
 		},
 		"artifactCategory": "snapshot",
