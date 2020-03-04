@@ -4,6 +4,8 @@ applications:
   memory: 1024M
   host: kafkamessageservice-dev
   path: target/kafka-message-service.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git#v4.19
+  stack: cflinuxfs3
 
 env:
  SPRING_PROFILES_ACTIVE: development
