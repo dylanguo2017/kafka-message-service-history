@@ -1,9 +1,9 @@
 ---
 applications:
-- name: kafkamessageservice
-  memory: 1024M
-  host: kafkamessageservice
-  path: target/kafka-message-service.war
+  - name: kafkamessageservice
+    memory: 1024M
+    host: kafkamessageservice
+    path: target/kafka-message-service.war
 
 env:
- SPRING_PROFILES_ACTIVE: production
+  SPRING_PROFILES_ACTIVE: production

@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaMessageService{
+public class KafkaMessageService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaMessageService.class);
 
@@ -46,18 +46,18 @@ public class KafkaMessageService{
     }
 
 
-    public KafkaMessageResponse sendMessageToTcld(String xmlPayload){
-        sendMessageToTopic(xmlPayload, kafkaTCLDTopicName );
+    public KafkaMessageResponse sendMessageToTcld(String xmlPayload) {
+        sendMessageToTopic(xmlPayload, kafkaTCLDTopicName);
         return kafkaMessageResponse;
     }
 
-    public KafkaMessageResponse sendXmlMessageToGCP(String xmlPayload){
-        sendMessageToTopic(xmlPayload, kafkaGCP_XMLTopicName );
+    public KafkaMessageResponse sendXmlMessageToGCP(String xmlPayload) {
+        sendMessageToTopic(xmlPayload, kafkaGCP_XMLTopicName);
         return kafkaMessageResponse;
     }
 
-    public KafkaMessageResponse sendJsonMessageToGCP(String jsonPayload){
-        sendMessageToTopic(jsonPayload, kafkaGCP_JSONTopicName );
+    public KafkaMessageResponse sendJsonMessageToGCP(String jsonPayload) {
+        sendMessageToTopic(jsonPayload, kafkaGCP_JSONTopicName);
         return kafkaMessageResponse;
     }
 
@@ -65,7 +65,7 @@ public class KafkaMessageService{
 
         Properties props = setUpCommonProperties();
 
-        Producer<String, String> producer =null;
+        Producer<String, String> producer = null;
 
         try {
 

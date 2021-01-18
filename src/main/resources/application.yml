@@ -1,34 +1,34 @@
 # default
 ---
 spring:
- profiles:  default
+  profiles: default
 
 kafka:
- server:
-  topic: ECC-TCLD-Topic-AD
-  url: com-kafka-qa.com.homedepot.com:9092
-  connector: COM_ECC_XML_MESSAGE_TOPIC_AD
-  json: COM_ECC_JSON_MESSAGE_TOPIC_AD
-         
+  server:
+    topic: ECC-TCLD-Topic-AD
+    url: com-kafka-qa.com.homedepot.com:9092
+    connector: COM_ECC_XML_MESSAGE_TOPIC_AD
+    json: COM_ECC_JSON_MESSAGE_TOPIC_AD
+
 # test
 ---
 spring:
- profiles:  test
+  profiles: test
 
 kafka:
- server:
-  topic: ECC-TCLD-Topic-AD
-  url: com-kafka-qa.com.homedepot.com:9092
-  connector: COM_ECC_XML_MESSAGE_TOPIC_AD
-  json: COM_ECC_JSON_MESSAGE_TOPIC_AD
+  server:
+    topic: ECC-TCLD-Topic-AD
+    url: com-kafka-qa.com.homedepot.com:9092
+    connector: COM_ECC_XML_MESSAGE_TOPIC_AD
+    json: COM_ECC_JSON_MESSAGE_TOPIC_AD
 
 
 
 #development
 ---
 spring:
-  profiles:  development
-  
+  profiles: development
+
 kafka:
   server:
     topic: ECC-TCLD-Topic-AD
@@ -41,7 +41,7 @@ kafka:
 # QA
 ---
 spring:
-  profiles:  qa
+  profiles: qa
 
 kafka:
   server:
@@ -53,8 +53,8 @@ kafka:
   # QP
 ---
 spring:
-  profiles:  qp
-  
+  profiles: qp
+
 kafka:
   server:
     topic: ECC-TCLD-Topic-QP
@@ -66,8 +66,8 @@ kafka:
   # PRODUCTION
 ---
 spring:
-  profiles:  production
-  
+  profiles: production
+
 kafka:
   server:
     topic: ECC-TCLD-Topic

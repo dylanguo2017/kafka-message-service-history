@@ -1,9 +1,9 @@
 ---
 applications:
-- name: kafkamessageservice
-  memory: 1024M
-  host: kafkamessageservice-qp
-  path: target/kafka-message-service.war
+  - name: kafkamessageservice
+    memory: 1024M
+    host: kafkamessageservice-qp
+    path: target/kafka-message-service.war
 
 env:
- SPRING_PROFILES_ACTIVE: qp
+  SPRING_PROFILES_ACTIVE: qp

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class KafkaMessageResponse {
 
-	private String statusDesc;
-	private int status;
+    private String statusDesc;
+    private int status;
 
 }

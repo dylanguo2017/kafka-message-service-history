@@ -20,7 +20,6 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -50,8 +49,9 @@ public class KafkaMessageServiceTest {
 //          "COM_ECC_XML_MESSAGE_TOPIC_AD", "COM_ECC_JSON_MESSAGE_TOPIC_AD");
         KafkaMessageResponse expectedResponse = KafkaMessageResponse.builder().statusDesc("success")
           .status(0).build();
-        when(kafkaMessageServiceMock.sendMessageToTcld(any())).thenReturn(KafkaMessageResponse.builder().statusDesc("success")
-          .status(0).build());
+        when(kafkaMessageServiceMock.sendMessageToTcld(any()))
+          .thenReturn(KafkaMessageResponse.builder().statusDesc("success")
+            .status(0).build());
         KafkaMessageResponse actualResponse = kafkaMessageServiceMock.sendMessageToTcld(message);
         assertThat(actualResponse, is(expectedResponse));
 
