@@ -45,7 +45,7 @@ public class KafkaMessageController {
         LOGGER.debug("Start sendKafkaMessageToGCPXMLflow()");
         KafkaMessageResponse kafkaMessageResponse;
         if (!StringUtils.isEmpty(xml)) {
-            kafkaMessageResponse = kafkaMessageService.sendXmlMessageToGCP(xml);
+            kafkaMessageResponse = kafkaMessageService.sendXmlMessageToKafkaConnector(xml);
         } else {
             kafkaMessageResponse = null;
             LOGGER.debug("Request XML for Kafka Service is Empty.");
@@ -64,7 +64,7 @@ public class KafkaMessageController {
         LOGGER.debug("Start sendKafkaMessageToGCPJSONflow()");
 
         if (!StringUtils.isEmpty(json)) {
-            kafkaMessageResponse = kafkaMessageService.sendJsonMessageToGCP(json);
+            kafkaMessageResponse = kafkaMessageService.sendJsonMessageToJsonTransformer(json);
         } else {
             kafkaMessageResponse = null;
             LOGGER.debug("Request JSON for Kafka Service is Empty.");

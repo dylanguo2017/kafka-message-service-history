@@ -51,12 +51,12 @@ public class KafkaMessageService {
         return kafkaMessageResponse;
     }
 
-    public KafkaMessageResponse sendXmlMessageToGCP(String xmlPayload) {
+    public KafkaMessageResponse sendXmlMessageToKafkaConnector(String xmlPayload) {
         sendMessageToTopic(xmlPayload, kafkaGCP_XMLTopicName);
         return kafkaMessageResponse;
     }
 
-    public KafkaMessageResponse sendJsonMessageToGCP(String jsonPayload) {
+    public KafkaMessageResponse sendJsonMessageToJsonTransformer(String jsonPayload) {
         sendMessageToTopic(jsonPayload, kafkaGCP_JSONTopicName);
         return kafkaMessageResponse;
     }
