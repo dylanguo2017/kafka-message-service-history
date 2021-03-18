@@ -74,3 +74,16 @@ kafka:
     url: com-kafka-pr.com.homedepot.com:9092
     connector: COM_ECC_XML_MESSAGE_TOPIC
     json: COM_ECC_JSON_MESSAGE_TOPIC
+
+
+  # PRODUCTION-EB
+---
+spring:
+  profiles: production-eb
+
+kafka:
+  server:
+    topic: ECC-TCLD-Topic
+    url: com-kafka-prodssc.homedepot.com:9092
+    connector: COM_ECC_XML_MESSAGE_TOPIC
+    json: COM_ECC_JSON_MESSAGE_TOPIC
